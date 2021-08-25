@@ -31,3 +31,11 @@ Käivitada Edge Impulse daemon:
 Lisaks tundmatute sõnade ja müra jaoks:
 
 * [Keyword spotting dataset](https://docs.edgeimpulse.com/docs/keyword-spotting)
+
+## Links
+
+* [Responding to your voice](https://docs.edgeimpulse.com/docs/responding-to-your-voice)
+
+ ___
+
+Copyright Tauno Erik 2021 [taunoerik.art](https://taunoerik.art/)
