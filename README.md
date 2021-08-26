@@ -52,7 +52,7 @@ Kasutatud märgendid: `Punane`, `Sinine`, `Roheline`, `unknown` ja `noise`.
 
 Viia **Arduino Nano 33 Ble Sense** alglaadimis reziimi: reset nuppu vajutada kiiresti kaks korda. Kollane tuli hakkab vilkuma.
 
-Kataloogis [edge_impulse_firmware/arduino-nano-33-ble-sense/](./edge_impulse_firmware/arduino-nano-33-ble-sense/)
+Kataloogis [edge_impulse_firmware/arduino-nano-33-ble-sense/](./edge_impulse_firmware/arduino-nano-33-ble-sense/) on Edge Impulse firmware.
 
     ./flash_linux.sh
 
@@ -66,13 +66,45 @@ Terminalis käivitada Edge Impulse daemon:
 
 ![Edge Impulse daemon](./img/Ekraanipilt%202021-08-22%2018-39-39.png)
 
+Veebis _Data acquisition_ > _Record new data_
+
+
 Lisaks tundmatute sõnade ja müra jaoks saab kasutada seda andmestiku:
 
 * [Keyword spotting dataset](https://docs.edgeimpulse.com/docs/keyword-spotting)
 
+## Mudel
+
+### Create impulse
+
+![Create impulse](./img/create_impulse.png)
+
+### Parameters
+
+Impulse design > MFCC > Parameters
+
+![Parameters](./img/parameters.png)
+
+### Features
+
+Impulse design > MFCC > General features
+
+![General features](./img/general-features.png)
+
+### Classifier
+
+Impulse design > NN Classifier
+
+![NN Classifier](./img/classifier.png)
+
+## Testimine
+
+## Juurutamine
+
 ## Lingid
 
 * [Responding to your voice](https://docs.edgeimpulse.com/docs/responding-to-your-voice)
+* [Introduction to Embedded Machine Learning](https://www.coursera.org/learn/introduction-to-embedded-machine-learning)
 
  ___
 
