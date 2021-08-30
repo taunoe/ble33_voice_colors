@@ -97,6 +97,11 @@ Impulse design > NN Classifier
 
 ![NN Classifier](./img/classifier.png)
 
+### EON Turner
+
+
+![NN Classifier](./img/eon-turner.png)
+
 ## Testimine
 
 ## Juurutamine

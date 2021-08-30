@@ -44,8 +44,8 @@
 #define EI_CLASSIFIER_PROJECT_ID                 1085
 #define EI_CLASSIFIER_PROJECT_OWNER              "Tauno Erik"
 #define EI_CLASSIFIER_PROJECT_NAME               "Responding-to-color-name"
-#define EI_CLASSIFIER_PROJECT_DEPLOY_VERSION     5
-#define EI_CLASSIFIER_NN_INPUT_FRAME_SIZE        650
+#define EI_CLASSIFIER_PROJECT_DEPLOY_VERSION     9
+#define EI_CLASSIFIER_NN_INPUT_FRAME_SIZE        800
 #define EI_CLASSIFIER_RAW_SAMPLE_COUNT           16000
 #define EI_CLASSIFIER_RAW_SAMPLES_PER_FRAME      1
 #define EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE       (EI_CLASSIFIER_RAW_SAMPLE_COUNT * EI_CLASSIFIER_RAW_SAMPLES_PER_FRAME)
@@ -62,11 +62,11 @@
 #define EI_CLASSIFIER_OBJECT_DETECTION           0
 
 
-#define EI_CLASSIFIER_TFLITE_ARENA_SIZE          5824
+#define EI_CLASSIFIER_TFLITE_ARENA_SIZE          6400
 #define EI_CLASSIFIER_TFLITE_INPUT_DATATYPE      EI_CLASSIFIER_DATATYPE_INT8
 #define EI_CLASSIFIER_TFLITE_INPUT_QUANTIZED     1
-#define EI_CLASSIFIER_TFLITE_INPUT_SCALE         0.03634154424071312
-#define EI_CLASSIFIER_TFLITE_INPUT_ZEROPOINT     -16
+#define EI_CLASSIFIER_TFLITE_INPUT_SCALE         0.0033854166977107525
+#define EI_CLASSIFIER_TFLITE_INPUT_ZEROPOINT     -128
 #define EI_CLASSIFIER_TFLITE_OUTPUT_DATATYPE     EI_CLASSIFIER_DATATYPE_INT8
 #define EI_CLASSIFIER_TFLITE_OUTPUT_QUANTIZED    1
 #define EI_CLASSIFIER_TFLITE_OUTPUT_SCALE        0.00390625
@@ -181,21 +181,19 @@ typedef struct {
     float pre_cof;
 } ei_dsp_config_audio_syntiant_t;
 
-uint8_t ei_dsp_config_3_axes[] = { 0 };
-const uint32_t ei_dsp_config_3_axes_size = 1;
-ei_dsp_config_mfcc_t ei_dsp_config_3 = {
-    2,
+uint8_t ei_dsp_config_7_axes[] = { 0 };
+const uint32_t ei_dsp_config_7_axes_size = 1;
+ei_dsp_config_mfe_t ei_dsp_config_7 = {
+    3,
     1,
-    13,
-    0.02000f,
-    0.02000f,
-    32,
+    0.05000f,
+    0.05000f,
+    40,
     256,
-    101,
     300,
     0,
-    0.98000f,
-    1
+    101,
+    -52
 };
 
 #endif // _EI_CLASSIFIER_MODEL_METADATA_H_

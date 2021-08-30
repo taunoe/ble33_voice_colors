@@ -3,6 +3,12 @@
 // If your target is limited in memory remove this macro to save 10K RAM
 #define EIDSP_QUANTIZE_FILTERBANK   0
 
+// My
+#define Punane_pin    4
+#define Sinine_pin    3
+#define Roheline_pin  2
+#define THRESHOLD     0.6
+
 /**
  * Define the number of slices per model window. E.g. a model window of 1000 ms
  * with slices per model window set to 4. Results in a slice size of 250 ms.
@@ -128,7 +134,6 @@ static bool microphone_inference_start(uint32_t n_samples) {
 
 /**
  * @brief      Wait on new data
- *
  * @return     True when finished
  */
 static bool microphone_inference_record(void) {
@@ -172,15 +177,11 @@ static void microphone_inference_end(void) {
 #error "Invalid model for current sensor."
 #endif
 
-#define Punane_pin 4
-#define Sinine_pin 3
-#define Roheline_pin 2
 
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(115200);
 
-  Serial.println("Edge Impulse");
+  Serial.println("Keyword detection");
 
   // summary of inferencing settings (from model_metadata.h)
   ei_printf("Inferencing settings:\n");
@@ -198,8 +199,8 @@ void setup() {
 
   // Sets the output pins
   pinMode(Roheline_pin, OUTPUT); // Roheline
-  pinMode(Sinine_pin, OUTPUT); // Sinine
-  pinMode(Punane_pin, OUTPUT); // Punane
+  pinMode(Sinine_pin, OUTPUT);   // Sinine
+  pinMode(Punane_pin, OUTPUT);   // Punane
 }
 
 void loop() {
@@ -228,7 +229,7 @@ void loop() {
     result.timing.dsp, result.timing.classification, result.timing.anomaly);
     ei_printf(": \n");
     for (size_t ix = 0; ix < EI_CLASSIFIER_LABEL_COUNT; ix++) {
-      if (result.classification[ix].value > 0.8) {
+      if (result.classification[ix].value > THRESHOLD) {
         ei_printf(" %d -", ix);
         ei_printf("    %s: %.5f\n", result.classification[ix].label,
                                         result.classification[ix].value);
